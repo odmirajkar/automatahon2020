@@ -59,39 +59,42 @@ class Test_ATT(unittest.TestCase):
 
 
     
-    
+    """
     def test_one_1(self):
         try:
             url="https://automatahon20b1.cpsatexam.org/challenge1/"
-            cls.support.driver.get(url)
+            self.support.driver.get(url)
             self.support.driver.find_element_by_xpath("//i[@class='eicon-close']").click()
             time.sleep(10)
             self.support.driver.find_element_by_xpath("//div[@class='eael-sticky-video-player2 out']")    
         except:
             self.assertEqual("1","2","Vdio not found")    
-    
-
     """
+
+   
     def test_one_3(self):
         self.support.driver.get("https://agiletestingalliance-new-staging.dxpsites.net/")
         self.support.driver.find_element_by_xpath("//i[@class='eicon-close']").click()
         element=self.support.driver.find_element_by_xpath("//h2[text()='Why #ATAGTR2020']/../../..//strong")
         data=element.text
         print(data)
-        #The program has 4 Keynotes, 2 Panel discussions, 7 Hands on Labs, 26 Interactive session, 14 Lightning sessions
+        data=data.replace(',','')
         data_values=data.split(" ")
+        #The program has 4 Keynotes, 2 Panel discussions, 7 Hands on Labs, 26 Interactive session, 14 Lightning sessions
         value_dict={}
         for ind,data in enumerate(data_values):
-            if "Lightning" in data:
-                value_dict['Lightning Talks'] = data[ind-1]
+            print(ind,data)
+            if "Lightning" == data:
+                value_dict['Lightning Talks'] = data_values[ind-1]
             elif "Interactive" in data:
-                value_dict['Interactive Sessions'] = data[ind-1]
-            elif "Hands" in data:
-                value_dict['Labs/Workshop'] = data[ind-1]
-            elif "Panel" in data:
-                value_dict['Panel'] = data[ind-1]     
-            elif "Kaynotes" in data:
-                value_dict['Kaynotes']=data[ind -1]
+                value_dict['Interactive Sessions'] = data_values[ind-1]
+            elif "Hands"  == data:
+                value_dict['Labs/Workshop'] = data_values[ind-1]
+            elif "Panel"  ==data:
+                value_dict['Panel'] = data_values[ind - 1]     
+            elif "Keynotes" == data:
+                value_dict['Kaynotes']= data_values[ind-1]
+            print(value_dict)   
 
         categories=['Interactive Sessions','Lightning Talks','Labs/Workshop','Panel Discussion','Kaynotes']
         for category in categories:
@@ -107,7 +110,7 @@ class Test_ATT(unittest.TestCase):
             break
             
             
-    """        
+           
    
     
     

@@ -22,7 +22,9 @@ class Test_API(unittest.TestCase):
        pass  
        
     def test_2(self):
-        
+        """
+        Run get and verify companies are created
+        """
         response=requests.get("http://34.68.51.180:4000/api/v1/companies")    
         self.assertEqual(response.status_code,200)
         print(response.text)
@@ -41,7 +43,9 @@ class Test_API(unittest.TestCase):
             
     
     def test_1(self):
-        
+        """
+        Run post and create companies
+        """
         with open('data.csv') as f:
             reader = csv.DictReader(f)
             for row in reader:
@@ -51,6 +55,9 @@ class Test_API(unittest.TestCase):
                 self.assertEqual(response.status_code,201)  
 
     def test_3(self):
+        """
+        Run delete for each company
+        """
         with open('data.csv') as f:
             reader = csv.DictReader(f)
             for row in reader:
@@ -60,7 +67,9 @@ class Test_API(unittest.TestCase):
                 self.assertEqual(response.status_code,204)  
 
     def test_4(self):
-        
+        """
+        Run get and verify companies are deleted
+        """
         response=requests.get("http://34.68.51.180:4000/api/v1/companies")    
         self.assertEqual(response.status_code,200)
         print(response.text)
@@ -77,7 +86,9 @@ class Test_API(unittest.TestCase):
                 self.assertFalse(row['name'] in names)
 
     def test_5(self):
-        
+        """
+        Run delete and verify response
+        """
         response=requests.delete("http://34.68.51.180:4000/api/v1/companies/{}".format('does not exrist'))
         print(response.status_code)
         print(response.text)
