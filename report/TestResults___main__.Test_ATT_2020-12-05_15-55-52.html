@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Reporting </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">HTML Reporting </h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-12-05 15:55:52</p>
+                <p class='attribute'><strong>Duration: </strong>16.79 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Error: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.Test_ATT</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_api</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">ConnectionError: HTTPConnectionPool(host='localhost', port=4000): Max retries exceeded with url: /api/v1/companies (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7da53d32d0>: Failed to establish a new connection: [Errno 111] Connection refused'))</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/user/anaconda3/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/user/anaconda3/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/user/anaconda3/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/user/anaconda3/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/home/user/anaconda3/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f7da53d32d0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/home/user/Documents/Projects/autothon/automatahon2020/urllib3/util/retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=4000): Max retries exceeded with url: /api/v1/companies (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7da53d32d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "challenge8.py", line 23, in test_api
+    response=requests.get("http://localhost:4000/api/v1/companies")
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/user/Documents/Projects/autothon/automatahon2020/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=4000): Max retries exceeded with url: /api/v1/companies (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7da53d32d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 0, Error: 1 -- Duration: 16.79 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
